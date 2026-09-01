@@ -1,0 +1,12 @@
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+
+import '@/lib/i18n';
+import Home from './page';
+
+describe('Home', () => {
+    it('renders the translated app name', () => {
+        render(<Home />);
+        expect(screen.getByRole('heading', { name: 'Centro Storico' })).toBeInTheDocument();
+    });
+});
