@@ -1,33 +1,45 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Fraunces } from 'next/font/google';
 
 import './globals.css';
-import { AppProviders } from '@/components/providers/app-providers';
+import { AppProviders } from '@/components/providers/AppProviders';
+import { AppShell } from '@/components/layout/AppShell';
 
 const geistSans = Geist({
-    variable: '--font-geist-sans',
+    variable: '--font-sans',
     subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
+    variable: '--font-mono',
+    subsets: ['latin'],
+});
+
+const fraunces = Fraunces({
+    variable: '--font-heading',
     subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-    title: 'Centro Storico — Gestionale Borgata',
+    title: 'Centro Storico — Gestionale Rione',
     description:
-        'Gestione amministrativa della borgata Centro Storico di Ceva (CN): iscritti, quote, merchandise e cassa comune.',
+        'Gestione amministrativa del rione Centro Storico di Ceva (CN): iscritti, quote, merchandise e cassa comune.',
 };
+
+const themeInitScript = `(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();`;
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
     return (
         <html
             lang="it"
-            className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+            suppressHydrationWarning
+            className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full`}
         >
-            <body className="flex min-h-full flex-col">
-                <AppProviders>{children}</AppProviders>
+            <body className="min-h-svh">
+                <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+                <AppProviders>
+                    <AppShell>{children}</AppShell>
+                </AppProviders>
             </body>
         </html>
     );

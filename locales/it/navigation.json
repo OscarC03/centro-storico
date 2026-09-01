@@ -1,0 +1,33 @@
+{
+    "brand": {
+        "name": "Centro Storico",
+        "tagline": "Rione · Ceva"
+    },
+    "sections": {
+        "dashboard": "Dashboard",
+        "members": "Iscritti",
+        "fees": "Quote",
+        "merchandise": "Merchandise",
+        "treasury": "Cassa"
+    },
+    "descriptions": {
+        "dashboard": "Panoramica generale del rione.",
+        "members": "Anagrafica degli iscritti al Palio.",
+        "fees": "Quote di iscrizione e stato dei pagamenti.",
+        "merchandise": "Catalogo, richieste e pagamenti del merchandise.",
+        "treasury": "Entrate, uscite e saldo della cassa comune."
+    },
+    "menu": {
+        "open": "Apri il menu",
+        "close": "Chiudi il menu",
+        "primary": "Navigazione principale"
+    },
+    "user": {
+        "menuLabel": "Account",
+        "profile": "Profilo",
+        "settings": "Impostazioni",
+        "logout": "Esci",
+        "placeholderName": "Utente",
+        "placeholderEmail": "utente@centrostorico.it"
+    }
+}

@@ -2,11 +2,11 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import '@/lib/i18n';
-import Home from './page';
+import DashboardPage from './page';
 
-describe('Home', () => {
-    it('renders the translated app name', () => {
-        render(<Home />);
-        expect(screen.getByRole('heading', { name: 'Centro Storico' })).toBeInTheDocument();
+describe('DashboardPage', () => {
+    it('renders the translated section title', () => {
+        render(<DashboardPage />);
+        expect(screen.getByRole('heading', { name: 'Dashboard' })).toBeInTheDocument();
     });
 });

@@ -43,5 +43,6 @@ next-env.d.ts
 
 #this project
 /.claude
+/.impeccable
 CLAUDE.md
 /docs
