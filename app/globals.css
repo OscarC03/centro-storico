@@ -1,38 +1,229 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:is(.dark *));
+
 /*
- * Brand token placeholders (Fase 0).
- * Full palette and shadcn tokens will be consolidated in Fase 1 (impeccable).
+ * Design system — Borgata "Centro Storico".
+ * Palette derivata dai tre colori di brand: verde #0b8b41, superficie #fefefe, ink #1d1d1d.
+ * Il verde è il colore identitario: usato con parsimonia per gerarchia e stati attivi.
+ * Colori funzionali per la contabilità: entrata = verde, uscita = rosso, oltre a warning/info.
  */
 :root {
+    /* Brand */
     --brand-green: #0b8b41;
     --brand-white: #fefefe;
     --brand-ink: #1d1d1d;
 
+    /* Scala di verde (tint/shade) */
+    --green-50: #e9f6ee;
+    --green-100: #cdeadb;
+    --green-200: #a0d7bb;
+    --green-300: #66bd93;
+    --green-400: #2ea45f;
+    --green-500: #0b8b41;
+    --green-600: #0a7c3a;
+    --green-700: #086a31;
+    --green-800: #075427;
+    --green-900: #06421f;
+
+    /* Token semantici — tema chiaro (default) */
     --background: var(--brand-white);
     --foreground: var(--brand-ink);
-    --primary: var(--brand-green);
-    --primary-foreground: var(--brand-white);
+    --card: #ffffff;
+    --card-foreground: var(--brand-ink);
+    --popover: #ffffff;
+    --popover-foreground: var(--brand-ink);
+    --primary: var(--green-500);
+    --primary-foreground: #ffffff;
+    --secondary: #f2f4f3;
+    --secondary-foreground: var(--brand-ink);
+    --muted: #f4f5f5;
+    --muted-foreground: #566159;
+    --accent: var(--green-50);
+    --accent-foreground: var(--green-800);
+    --border: #e4e7e5;
+    --input: #e4e7e5;
+    --ring: var(--green-500);
+
+    /* Colori funzionali (contabilità e feedback) */
+    --success: var(--green-500);
+    --success-foreground: #ffffff;
+    --destructive: #cf2e22;
+    --destructive-foreground: #ffffff;
+    --warning: #b45309;
+    --warning-foreground: #ffffff;
+    --info: #1d4ed8;
+    --info-foreground: #ffffff;
+
+    /* Grafici */
+    --chart-1: var(--green-500);
+    --chart-2: var(--green-400);
+    --chart-3: #1d4ed8;
+    --chart-4: #b45309;
+    --chart-5: #64748b;
+
+    --radius: 0.625rem;
+
+    /* Sidebar */
+    --sidebar: #f7f9f8;
+    --sidebar-foreground: var(--brand-ink);
+    --sidebar-primary: var(--green-500);
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: var(--green-50);
+    --sidebar-accent-foreground: var(--green-800);
+    --sidebar-border: #e4e7e5;
+    --sidebar-ring: var(--green-500);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: var(--brand-ink);
-        --foreground: var(--brand-white);
-    }
+.dark {
+    /* Token semantici — tema scuro */
+    --background: var(--brand-ink);
+    --foreground: var(--brand-white);
+    --card: #242625;
+    --card-foreground: var(--brand-white);
+    --popover: #242625;
+    --popover-foreground: var(--brand-white);
+    --primary: var(--green-400);
+    --primary-foreground: #06220f;
+    --secondary: #2a2c2b;
+    --secondary-foreground: var(--brand-white);
+    --muted: #2a2c2b;
+    --muted-foreground: #a6afa9;
+    --accent: #14361f;
+    --accent-foreground: #d6f0e0;
+    --border: #ffffff1a;
+    --input: #ffffff26;
+    --ring: var(--green-400);
+
+    --success: var(--green-400);
+    --success-foreground: #06220f;
+    --destructive: #f0563f;
+    --destructive-foreground: #1d1d1d;
+    --warning: #f59e0b;
+    --warning-foreground: #1d1d1d;
+    --info: #60a5fa;
+    --info-foreground: #0a1a2f;
+
+    --chart-1: var(--green-400);
+    --chart-2: var(--green-300);
+    --chart-3: #60a5fa;
+    --chart-4: #f59e0b;
+    --chart-5: #94a3b8;
+
+    --sidebar: #191a19;
+    --sidebar-foreground: var(--brand-white);
+    --sidebar-primary: var(--green-400);
+    --sidebar-primary-foreground: #06220f;
+    --sidebar-accent: #14361f;
+    --sidebar-accent-foreground: #d6f0e0;
+    --sidebar-border: #ffffff1a;
+    --sidebar-ring: var(--green-400);
 }
 
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
     --color-primary: var(--primary);
     --color-primary-foreground: var(--primary-foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-success: var(--success);
+    --color-success-foreground: var(--success-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-warning: var(--warning);
+    --color-warning-foreground: var(--warning-foreground);
+    --color-info: var(--info);
+    --color-info-foreground: var(--info-foreground);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
+    --font-heading: var(--font-heading);
+
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
 }
 
-body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    html {
+        @apply font-sans antialiased;
+    }
+}
+
+/* Transizioni open/close per le primitive Radix (Tailwind puro) */
+@keyframes cs-enter {
+    from {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes cs-exit {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+    }
+}
+
+@keyframes cs-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cs-fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

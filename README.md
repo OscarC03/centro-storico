@@ -6,7 +6,7 @@ iscritti al Palio, quote di iscrizione, merchandise e cassa comune.
 ## Stack
 
 - Next.js 16 (App Router) · React 19 · TypeScript
-- Tailwind CSS 4 · shadcn/ui (dalla Fase 1) · Motion · Lucide
+- Tailwind CSS 4 · Radix UI (primitive, dalla Fase 1) · Motion · Lucide
 - TanStack Query v5 · Supabase (auth + DB, dalla Fase 2)
 - i18next (solo italiano) · Prettier 3 · Vitest + Testing Library
 - Package manager: **pnpm**
@@ -52,7 +52,7 @@ Impostare in `.env.local` (mai committare valori reali — vedi `.env.example`):
 app/                 # route App Router (layout, page)
 components/
   providers/         # provider client (TanStack Query, i18next)
-  ui/                # primitive shadcn (dalla Fase 1)
+  ui/                # primitive UI su Radix (dalla Fase 1)
 hooks/               # custom hook (incl. TanStack Query)
 services/            # accesso dati (Supabase), no React
 lib/                 # query client, i18n, utils

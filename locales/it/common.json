@@ -1,7 +1,49 @@
 {
     "app": {
         "name": "Centro Storico",
-        "subtitle": "Gestionale della borgata Centro Storico — Ceva (CN)",
-        "status": "Fase 0 — inizializzazione completata"
+        "subtitle": "Gestionale del rione Centro Storico — Ceva (CN)",
+        "shortName": "CS"
+    },
+    "actions": {
+        "create": "Crea",
+        "edit": "Modifica",
+        "delete": "Elimina",
+        "save": "Salva",
+        "cancel": "Annulla",
+        "confirm": "Conferma",
+        "close": "Chiudi",
+        "search": "Cerca",
+        "retry": "Riprova",
+        "back": "Indietro"
+    },
+    "states": {
+        "loading": "Caricamento…",
+        "empty": {
+            "title": "Nessun dato",
+            "description": "Non ci sono elementi da mostrare."
+        },
+        "error": {
+            "title": "Si è verificato un errore",
+            "description": "Impossibile completare l'operazione. Riprova."
+        },
+        "comingSoon": {
+            "title": "In arrivo",
+            "description": "Questa sezione sarà disponibile in una fase successiva."
+        }
+    },
+    "theme": {
+        "toggle": "Cambia tema",
+        "light": "Tema chiaro",
+        "dark": "Tema scuro"
+    },
+    "table": {
+        "noResults": "Nessun risultato.",
+        "previous": "Precedente",
+        "next": "Successiva",
+        "page": "Pagina {{current}} di {{total}}"
+    },
+    "confirmDialog": {
+        "title": "Confermi l'operazione?",
+        "description": "Questa azione non può essere annullata."
     }
 }

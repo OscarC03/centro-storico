@@ -1,22 +1,22 @@
 'use client';
 
-import { LayoutDashboard } from 'lucide-react';
+import { Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { PageHeader } from '@/components/common/PageHeader';
 import { EmptyState } from '@/components/common/EmptyState';
 
-export default function DashboardPage() {
+export default function MembersPage() {
     const { t } = useTranslation(['navigation', 'common']);
 
     return (
         <div className="space-y-6">
             <PageHeader
-                title={t('navigation:sections.dashboard')}
-                description={t('navigation:descriptions.dashboard')}
+                title={t('navigation:sections.members')}
+                description={t('navigation:descriptions.members')}
             />
             <EmptyState
-                icon={LayoutDashboard}
+                icon={Users}
                 title={t('common:states.comingSoon.title')}
                 description={t('common:states.comingSoon.description')}
             />
